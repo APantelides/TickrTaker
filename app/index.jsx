@@ -21,7 +21,7 @@ import AddAuctionItem from './components/addauctionitem.jsx';
 
 ReactDOM.render((
   <Router history={hashHistory}>
-    <Route path='/' component={App}>
+    <Route path='/' component={App} >
       <Route path='/main' component={Main} />
       <Route path='/auctions' component={Auctions} />
       <Route path='/dashboard' component= {Dashboard} />

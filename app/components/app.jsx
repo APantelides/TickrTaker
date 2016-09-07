@@ -8,6 +8,7 @@ export default class App extends Component {
     this.state = {
       isAuth: false
     };
+    this.checkAuthState = this.checkAuthState.bind(this);
   }
 
   componentWillMount() {
@@ -23,12 +24,22 @@ export default class App extends Component {
     });
   }
 
+  checkAuthState () {
+    return this.state.isAuth;
+  }
+
   render() {
+    var checkAuthState = this.checkAuthState;
     var navbar = this.state.isAuth ? <Navbar2 /> : <Navbar1 />;
+    var children = React.Children.map(this.props.children, function(child) {
+      return React.cloneElement(child, {
+        auth: checkAuthState
+      });
+    });
     return (
       <div>
         {navbar}
-        {this.props.children}
+        {children}
       </div>
     );
   }
