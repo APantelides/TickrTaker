@@ -38,12 +38,14 @@ export default class Auction extends Component {
     return (
       <div>
         <h1>Current Auctions</h1>
-        <div style={{display: 'flex', 'flexWrap': 'wrap'}}>
+        <div className="container" style={{display: 'flex', 'flexWrap': 'wrap'}}>
+          <div className="row">
           {
             this.state.entrys.map((entry) => {
               return (<AuctionEntry item={entry} auth={this.props.auth} />);
             })
           }
+          </div>
         </div>
       </div>
     );
